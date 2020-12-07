@@ -1,5 +1,3 @@
-let propertyPrice;
-
 document.querySelector(".calculate").addEventListener("click", function () {
   const calculate = Number(document.querySelector(".calculate").value);
   let propertyPrice = Number(document.querySelector(".propertyPrice").value);
@@ -17,9 +15,9 @@ document.querySelector(".calculate").addEventListener("click", function () {
     ((interestRate * (1 + interestRate) ** mortgageTerm) /
       ((1 + interestRate) ** mortgageTerm - 1));
 
-  document.querySelector(".monthlyPayment").textContent = Math.round(
+  document.querySelector(".monthlyPayment").textContent = `£ ${Math.round(
     monthlyPayment
-  );
+  )}`;
 
   // working out monthly principle and interest //
 
@@ -28,8 +26,10 @@ document.querySelector(".calculate").addEventListener("click", function () {
   );
   let monthlyInterest = Math.round(monthlyPayment * interestRate * 100);
 
-  document.querySelector(".monthlyPayoff").textContent = monthlyPayoff;
-  document.querySelector(".monthlyInterest").textContent = monthlyInterest;
+  document.querySelector(".monthlyPayoff").textContent = `£ ${monthlyPayoff}`;
+  document.querySelector(
+    ".monthlyInterest"
+  ).textContent = `£ ${monthlyInterest}`;
 
   // monthly principle and interest percentage bar //
 
